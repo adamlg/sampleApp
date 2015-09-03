@@ -1,0 +1,33 @@
+#frame {
+	height: 400px;
+	width: 500px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#piece {
+	max-width: 500px; 
+	max-width: 400px; 
+	display: block; 
+	margin: auto;
+}
+
+#noButton, #yesButton, .container {
+	float: left;
+	vertical-align: middle;
+}
+
+#description {
+	text-align: center;
+}
+
+#noButton, #yesButton {
+	height:400px;
+}
+
+.selected {
+	background-color: green;
+}

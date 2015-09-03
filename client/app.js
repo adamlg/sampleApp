@@ -1,4 +1,4 @@
-angular.module('app',['ngRoute','app.main'])
+angular.module('app',['ngRoute','ngTouch','app.main'])
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 		.when('/', {

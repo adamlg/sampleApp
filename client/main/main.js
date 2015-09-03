@@ -1,5 +1,5 @@
 angular.module('app.main', [])
-.controller('mainCtrl', function($scope, $http) {
+.controller('mainCtrl', function($scope, $http, $timeout) {
 
 	$scope.gallery = []
 
@@ -23,7 +23,6 @@ angular.module('app.main', [])
 		})
 		.then(function(pieces) {
 			// console.log('fetched',pieces.data.fetched)
-			//what to do if there are no more pieces?  just cycle around?
 			$scope.gallery = $scope.gallery.concat(pieces.data.fetched)
 			if(!$scope.piece) $scope.nextPiece()
 		})
@@ -34,8 +33,14 @@ angular.module('app.main', [])
 
 	$scope.refill(0)
 
+	$scope.indicator = 0
+
 	$scope.rate = function(id,added) { //added is 1 if liked, -1 if not
 		$scope.nextPiece()
+
+		//in place of dragging animation, this binds to the template to visually indicate what the user picked.
+		$scope.indicator = added
+		$timeout(function(){$scope.indicator = 0},450)
 
 		return $http({
 			method: 'PUT',

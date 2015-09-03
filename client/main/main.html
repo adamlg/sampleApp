@@ -1,5 +1,10 @@
-<div>
-	<div>{{piece.desc}}</div>
-	<button ng-click='piece!==end && rate(piece.id,1)'>Click here for yes.</button>
-	<button ng-click='piece!==end && rate(piece.id,-1)'>Click here for no.</button>
+<div style="height:600px">
+	<button id="noButton" ng-class="{'selected':indicator===-1}" ng-click='piece!==end && rate(piece.id,-1)'>Click here for no.</button>
+	<div class="container">
+		<div id="frame">
+			<img src="{{piece.url}}" id="piece" ng-swipe-left='piece!==end && rate(piece.id,-1)' ng-swipe-right='piece!==end && rate(piece.id,1)'></img>
+		</div>
+		<div id="description">{{piece.desc}}</div>
+	</div>
+	<button id="yesButton" ng-class="{'selected':indicator===1}" ng-click='piece!==end && rate(piece.id,1)'>Click here for yes.</button>
 </div>

@@ -1,6 +1,6 @@
-var gallery = require('../controllers/gallery.js')
+var galleryController = require('../controllers/galleryController.js')
 
 module.exports = function(app) {
-	app.get('/',gallery.fetch)
-	app.put('/',gallery.rate)
+	app.get('/',galleryController.fetch)
+	app.put('/',galleryController.rate)
 }
