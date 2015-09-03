@@ -5,7 +5,7 @@ module.exports = {
 		var id = req.body.id
 		var rating = req.body.rating
 		pieces.update(id,rating)
-		// console.log(pieces.get(id)[0])
+		console.log(pieces.update(id)[0])
 
 		res.status(200).send('Successfully updated '+ id +'.')
 	},
@@ -13,7 +13,7 @@ module.exports = {
 	fetch: function(req, res) {
 		var beginning = +req.query.start
 		var fetched = pieces.find(beginning)
-		// console.log('fetched',fetched[0])
+		console.log('fetched',fetched[0])
 
 		res.status(200).send({fetched:fetched})
 	}

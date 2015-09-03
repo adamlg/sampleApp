@@ -7,4 +7,5 @@ module.exports = function(app) {
 	addRouting(galleryRouter)
 
 	app.use('/api/gallery',galleryRouter)
+	console.log('routes added.')
 }
