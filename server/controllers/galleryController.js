@@ -12,7 +12,7 @@ module.exports = {
 
 	fetch: function(req, res) {
 		var beginning = +req.query.start
-		var fetched = pieces.get(beginning)
+		var fetched = pieces.find(beginning)
 		// console.log('fetched',fetched[0])
 
 		res.status(200).send({fetched:fetched})

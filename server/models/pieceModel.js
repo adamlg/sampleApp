@@ -235,8 +235,9 @@ var fakeMongo = ['http://www.arttherapyblog.com/uimages/2011/01/art-therapy-care
 	return {id:ind,url:item,desc:'This is the description for item '+ind+'.',rating:0}
 })
 
+//find and update are the Mongoose methods I'd use with a normal MongoDB instance.
 module.exports = {
-	get: function(startingIndex) {
+	find: function(startingIndex) {
 		return fakeMongo.slice(startingIndex,startingIndex+5)
 	},
 
