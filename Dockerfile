@@ -5,14 +5,16 @@ RUN apt-get install -y nodejs-legacy
 RUN apt-get install -y npm
 RUN apt-get install -y git
 
-ADD package.json /src/package.json
-RUN cd /src; npm install
+WORKDIR /src
 
-ADD bower.json /src/bower.json
-RUN cd /src; /src/node_modules/bower/bin/bower --allow-root install
+ADD package.json package.json
+RUN npm install
+
+ADD bower.json bower.json
+RUN node_modules/bower/bin/bower --allow-root install
 
 ADD . /src
 
 EXPOSE 8000
 
-CMD ["node","/src/server/server.js"]
+CMD ["node","server/server.js"]
